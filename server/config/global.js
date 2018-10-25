@@ -11,7 +11,7 @@ module.exports = {
     // parse_databaseURI: 'mongodb://localhost/test?useNewUrlParser=true',
     parse_databaseURI_PG: 'postgres://u_zone_gasep:u_zone_gasep@10.5.4.115:33081/db_parser',
     parse_databaseURI_MYSQL: 'postgres://wits_parser:wits_parser@localhost:5432/db_parser',
-    parse_databaseURI_MONGODB: 'postgres://wits_parser:wits_parser@localhost:5432/db_parser',
+    parse_databaseURI_MONGODB: 'mongodb://10.5.4.145:27017/test',
     parse_dshbd_userId: 'wits',
     parse_dshbd_passwd: 'wits',
     parse_appId: 'wits_parse',
