@@ -21,10 +21,11 @@ module.exports = {
     cookie: {
       secure: false
     }
-  }
+  },
 
   // models: {
   //   connection: 'someMongodbServer'
   // }
+  Port: 11100,
 
 };

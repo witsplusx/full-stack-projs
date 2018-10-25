@@ -1,74 +1,55 @@
-/**
- * app.js
- *
- * Use `app.js` to run your app without `sails lift`.
- * To start the server, run: `node app.js`.
- *
- * This is handy in situations where the sails CLI is not relevant or useful.
- *
- * For example:
- *   => `node app.js`
- *   => `forever start app.js`
- *   => `node debug app.js`
- *   => `modulus deploy`
- *   => `heroku scale`
- *
- *
- * The same command-line arguments are supported, e.g.:
- * `node app.js --silent --port=80 --prod`
- */
-
-var SailsApp = require('sails').Sails;
-
-// Ensure we're in the project directory, so cwd-relative paths work as expected
-// no matter where we actually lift from.
-// > Note: This is not required in order to lift, but it is a convenient default.
 process.chdir(__dirname);
 
-// Attempt to import `sails`.
-var sails = new SailsApp();
-try {
-  sails = require('sails')
-} catch (e) {
-  console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');
-  console.error('To do that, run `npm install sails`');
-  console.error('');
-  console.error('Alternatively, if you have sails installed globally (i.e. you did `npm install -g sails`), you can use `sails lift`.');
-  console.error('When you run `sails lift`, your app will still use a local `./node_modules/sails` dependency if it exists,');
-  console.error('but if it doesn\'t, the app will run with the global sails instead!');
-  return
-}
+$GLB_CFGS = require('./config/global');
+const path = require('path');
+const http = require('http');
+// const https = require('https');
 
-// --•
-// Try to get `rc` dependency (for loading `.sailsrc` files).
-var rc;
-try {
-  rc = require('rc');
-} catch (e0) {
-  try {
-    rc = require('sails/node_modules/rc')
-  } catch (e1) {
-    console.error('Could not find dependency: `rc`.');
-    console.error('Your `.sailsrc` file(s) will be ignored.');
-    console.error('To resolve this, run:');
-    console.error('npm install rc --save');
-    rc = function () { return {} }
-  }
-}
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static(path.join(__dirname, './assets')));
 
-// Start server
-sails.lift(rc('sails'));
+$parseSvrCpts = require('./midcpts/cpt_parseserver');
+const LibParseServer = $parseSvrCpts.ps_lib;
+const ParseServer = $parseSvrCpts.ps_server();
+const ParseDashboard = $parseSvrCpts.ps_dashboard();
 
-setInterval(function () {
-  sails.lower(function (err) {
-      const fs = require('fs');
-      fs.unlinkSync(__dirname + '/.tmp/localDiskDb.db');
+app.use('/parse', ParseServer);
+app.use('/dashboard', ParseDashboard);
 
-      if (err) return console.error('Error occurred lowering Sails app: ', err);
-      console.info('Sails app lowered successfully!');
-      sails = new SailsApp();
+const httpServer = http.createServer(app);
+httpServer.listen(4048, function () {
+  console.log('parse-server parse-dashboard are running on port 4048 ......')
+});
+const parseLiveQueryServer = LibParseServer.ParseServer.createLiveQueryServer(httpServer);
+console.log('parse-server successfully started live query server... ');
 
-      sails.lift(rc('sails'))
+/*const httpsServer = https.createServer(credentials, app);
+httpsServer.listen($config.svrSSLPort || 4049, function () {
+    console.log('parse-server parse-dashboard are running on port ' + $config.svrSSLPort + ' with ssl ......');
+});
+const parseLiveQueryServer = LibParseServer.ParseServer.createLiveQueryServer(httpsServer);
+console.log('parse-server successfully started live query server... ');*/
+
+//nodejs 代理https
+/*const httpProxy = require('http-proxy');
+const pem = require('pem');
+
+pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
+    if (err) {
+        throw err
     }
-  )
-}, 86400000);
+    httpProxy.createServer({
+        ssl: {
+            key: keys.serviceKey,
+            cert: keys.certificate
+        },
+        target: 'https://registry.npm.taobao.org',
+        secure: true // Depends on your needs, could be false.
+    }).listen(11443);
+});*/
+

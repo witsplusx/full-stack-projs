@@ -1,0 +1,5 @@
+server 文件夹  启动常用的服务组件
+    1、Parse Server
+    2
+
+
