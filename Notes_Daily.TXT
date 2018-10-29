@@ -1,0 +1,8 @@
+npm install -g npm-check-updates
+ncu
+ncu -u
+ncu -a
+
+
+cd /wits/BIGDS/witshine/devcpts/tidb-docker-compose
+docker-compose -p newsql_pingcap start

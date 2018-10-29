@@ -29,6 +29,37 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Animation/Animation.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Animation/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/BaseLayerPicker/BaseLayerPicker.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/BaseLayerPicker/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Cesium3DTilesInspector/Cesium3DTilesInspector.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/CesiumInspector/CesiumInspector.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/CesiumWidget/CesiumWidget.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/CesiumWidget/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/FullscreenButton/FullscreenButton.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Geocoder/Geocoder.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Geocoder/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/InfoBox/InfoBox.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/InfoBox/InfoBoxDescription.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/lighterShared.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/NavigationHelpButton/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/NavigationHelpButton/NavigationHelpButton.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/PerformanceWatchdog/PerformanceWatchdog.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/ProjectionPicker/ProjectionPicker.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/SceneModePicker/SceneModePicker.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/SelectionIndicator/SelectionIndicator.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/shared.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Timeline/lighter.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Timeline/Timeline.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/Viewer/Viewer.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/VRButton/VRButton.css">
+    <link rel="stylesheet" href="/dependencies/cesium/Widgets/widgets.css">
+    <link rel="stylesheet" href="/dependencies/iview/iview.css">
+    <link rel="stylesheet" href="/dependencies/ol/ol.css">
+    <link rel="stylesheet" href="/dependencies/ol/olcs.css">
+    <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
 
@@ -59,6 +90,7 @@
     -->
 
     <!--TEMPLATES-->
+    
     <!--TEMPLATES END-->
 
 
@@ -102,6 +134,69 @@
     -->
 
     <!--SCRIPTS-->
+    <script src="/dependencies/sails.io.js"></script>
+    <script src="/dependencies/ali/BizCharts.min.js"></script>
+    <script src="/dependencies/bowser.js"></script>
+    <script src="/dependencies/cesium/Cesium.js"></script>
+    <script src="/dependencies/cesium/ThirdParty/Workers/deflate.js"></script>
+    <script src="/dependencies/cesium/ThirdParty/Workers/draco_decoder.js"></script>
+    <script src="/dependencies/cesium/ThirdParty/Workers/draco_wasm_wrapper.js"></script>
+    <script src="/dependencies/cesium/ThirdParty/Workers/inflate.js"></script>
+    <script src="/dependencies/cesium/Workers/cesiumWorkerBootstrapper.js"></script>
+    <script src="/dependencies/cesium/Workers/combineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createBoxGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createBoxOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCircleGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCircleOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCoplanarPolygonGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCoplanarPolygonOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCorridorGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCorridorOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCylinderGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createCylinderOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createEllipseGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createEllipseOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createEllipsoidGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createEllipsoidOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createFrustumGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createFrustumOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createGroundPolylineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPlaneGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPlaneOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPolygonGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPolygonOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPolylineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPolylineVolumeGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createPolylineVolumeOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createRectangleGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createRectangleOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createSimplePolylineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createSphereGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createSphereOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createVectorTileGeometries.js"></script>
+    <script src="/dependencies/cesium/Workers/createVectorTilePoints.js"></script>
+    <script src="/dependencies/cesium/Workers/createVectorTilePolygons.js"></script>
+    <script src="/dependencies/cesium/Workers/createVectorTilePolylines.js"></script>
+    <script src="/dependencies/cesium/Workers/createVerticesFromGoogleEarthEnterpriseBuffer.js"></script>
+    <script src="/dependencies/cesium/Workers/createVerticesFromHeightmap.js"></script>
+    <script src="/dependencies/cesium/Workers/createVerticesFromQuantizedTerrainMesh.js"></script>
+    <script src="/dependencies/cesium/Workers/createWallGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/createWallOutlineGeometry.js"></script>
+    <script src="/dependencies/cesium/Workers/decodeDraco.js"></script>
+    <script src="/dependencies/cesium/Workers/decodeGoogleEarthEnterprisePacket.js"></script>
+    <script src="/dependencies/cesium/Workers/transcodeCRNToDXT.js"></script>
+    <script src="/dependencies/cesium/Workers/transferTypedArrayTest.js"></script>
+    <script src="/dependencies/cesium/Workers/upsampleQuantizedTerrainMesh.js"></script>
+    <script src="/dependencies/iview/iview.min.js"></script>
+    <script src="/dependencies/jquery/jquery.min.js"></script>
+    <script src="/dependencies/lodash/lodash-4.17.4.min.js"></script>
+    <script src="/dependencies/ol/olcesium.js"></script>
+    <script src="/dependencies/parasails.js"></script>
+    <script src="/dependencies/react/babel.min.js"></script>
+    <script src="/dependencies/react/react-dom.production.min.js"></script>
+    <script src="/dependencies/react/react.production.min.js"></script>
+    <script src="/dependencies/vue/vue.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

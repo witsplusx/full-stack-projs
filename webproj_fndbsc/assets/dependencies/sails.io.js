@@ -342,7 +342,7 @@ return new(b[["Active"].concat("Object").join("X")])("Microsoft.XMLHTTP")}catch(
    * SailsIOClient()
    *
    * Augment the provided Socket.io client object (`io`) with methods for
-   * talking and listening to one or more Sails backend(s).  If no `io` was
+   * talking and listening to one or more Sails backend_sty(s).  If no `io` was
    * provided (i.e. in a browser setting), then attempt to use the global.
    *
    * This absorbs implicit `io.sails` configuration, sets a timer for
@@ -718,7 +718,7 @@ return new(b[["Active"].concat("Object").join("X")])("Microsoft.XMLHTTP")}catch(
       // Set up "eventQueue" to hold event handlers which have not been set on the actual raw socket yet.
       self.eventQueue = {};
 
-      // Listen for special `parseError` event sent from sockets hook on the backend
+      // Listen for special `parseError` event sent from sockets hook on the backend_sty
       // if an error occurs but a valid callback was not received from the client
       // (i.e. so the server had no other way to send back the error information)
       self.on('sails:parseError', function (err){

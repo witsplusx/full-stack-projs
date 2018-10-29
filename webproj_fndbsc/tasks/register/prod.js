@@ -19,9 +19,9 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'cssmin',
-    'sails-linker:prodJs',
-    'sails-linker:prodStyles',
-    'sails-linker:clientSideTemplates',
+    // 'sails-linker:prodJs',
+    // 'sails-linker:prodStyles',
+    // 'sails-linker:clientSideTemplates',
   ]);
 };
 

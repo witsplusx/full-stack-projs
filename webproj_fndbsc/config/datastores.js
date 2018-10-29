@@ -48,10 +48,16 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    // adapter: 'sails-mysql',
-    // url: 'mysql://user:password@host:port/database',
+    adapter: 'sails-mysql',
+    url: 'mysql://wits:wits@127.0.0.1:4000/wits_plusx',
 
   },
+
+  cache: {
+    adapter: 'sails-redis',
+    url: 'redis://127.0.0.1:25376',
+  }
+
 
 
 };
