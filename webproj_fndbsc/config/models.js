@@ -68,18 +68,18 @@ module.exports.models = {
    ***************************************************************************/
 
   attributes: {
-    id: { type: 'number', columnName: 'id', columnType: 'bigint(20)', },
-    bsCreatedAt: { type: 'number', autoCreatedAt: true, columnName: 'bsc_created_at', columnType: 'bigint(16)',},
-    bsUpdatedAt: { type: 'number', autoUpdatedAt: true, columnName: 'bsc_updated_at', columnType: 'bigint(16)',},
-    bsMetaType: {type: 'number', columnName: 'bsc_meta_type', columnType: 'integer(12)'},
-    bsMetaDesc: {type: 'string', columnName: 'bsc_meta_desc', columnType: 'varchar(80)'},
-    bsIsUse: {type: 'boolean', columnName: 'bsc_is_use', columnType: 'tinyint(1)',  defaultsTo: true},
-    bsDRegion: {type: 'number', columnName: 'bsc_data_region', columnType: 'integer(10)'},
-    bsDVersion: {type: 'number', columnName: 'bsc_data_version', columnType: 'integer(12)'},
-    bsTxId: {type: 'number', columnName: 'bsc_txid', columnType: 'bigint(20)'},
-    bsPaUnid: {type: 'number', columnName: 'bsc_pa_unid', columnType: 'bigint(20)'},
-    bsName: {type: 'string', columnName: 'bsc_name', columnType: 'varchar(80)'},
-    bsCode: {type: 'string', columnName: 'bsc_code', columnType: 'varchar(80)'},
+    id: { type: 'number', columnName: 'id', required: true, columnType: 'bigint(20)', },
+    bsCreatedAt: { type: 'number', autoCreatedAt: true, columnName: 'vsc_created_at', columnType: 'bigint(16)',},
+    bsUpdatedAt: { type: 'number', autoUpdatedAt: true, columnName: 'vsc_updated_at', columnType: 'bigint(16)',},
+    bsMetaType: {type: 'number', columnName: 'vsc_meta_type', columnType: 'integer(12)'},
+    bsMetaDesc: {type: 'string', columnName: 'vsc_meta_desc', columnType: 'varchar(80)'},
+    bsIsUse: {type: 'boolean', columnName: 'vsc_is_use', columnType: 'tinyint(1)',  defaultsTo: true},
+    bsDRegion: {type: 'number', columnName: 'vsc_data_region', columnType: 'integer(10)'},
+    bsDVersion: {type: 'number', columnName: 'vsc_data_version', columnType: 'integer(12)'},
+    bsTxId: {type: 'number', columnName: 'vsc_txid', columnType: 'bigint(20)'},
+    bsPaUnid: {type: 'number', columnName: 'vsc_pa_unid', columnType: 'bigint(20)'},
+    bsName: {type: 'string', columnName: 'vsc_name', columnType: 'varchar(80)'},
+    bsCode: {type: 'string', columnName: 'vsc_code', columnType: 'varchar(80)'},
     //--------------------------------------------------------------------------
     //  /\   Using MongoDB?
     //  ||   Replace `id` above with this instead:

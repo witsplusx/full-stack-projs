@@ -28,6 +28,9 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
+  'GET /fdbsca/organization': { action: 'fdbsca/view-organization' },
+
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
