@@ -55,7 +55,12 @@ module.exports.datastores = {
 
   cache: {
     adapter: 'sails-redis',
-    url: 'redis://127.0.0.1:25376',
+    url: 'redis://127.0.0.1:26376',
+  },
+
+  postgres_db: {
+    adapter: 'sails-postgresql',
+    url: 'postgres://usr_wits_plusx:usr_wits_plusx@127.0.0.1:5432/db_wits_plusx?currentSchema=sch_wits_plusx'
   }
 
 

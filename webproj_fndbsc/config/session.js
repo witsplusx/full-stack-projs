@@ -8,7 +8,6 @@
  * For all available options, see:
  * https://sailsjs.com/config/session
  */
-
 module.exports.session = {
 
   /***************************************************************************
@@ -19,7 +18,6 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
   secret: '791ed5fda905f300cdae4e305314fe33',
-
 
   /***************************************************************************
   *                                                                          *
@@ -36,4 +34,11 @@ module.exports.session = {
   //   return !!req.path.match(req._sails.LOOKS_LIKE_ASSET_RX);
   // },
 
+  /*adapter: 'redis',
+  host: '127.0.0.1',
+  port: 26376,
+  ttl: 3000,//<redis session TTL in seconds>
+  // db: 5,
+  // pass: redisConfig.redis.auth_pass,
+  prefix: 'wits_session:'*/
 };

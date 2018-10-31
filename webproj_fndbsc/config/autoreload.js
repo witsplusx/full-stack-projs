@@ -18,7 +18,7 @@ module.exports.autoreload = {
     "api/models",
     "api/controllers",
     "api/services",
-    "config/locales"
+    "config"
   ],
   ignored: [
     "**.ts"

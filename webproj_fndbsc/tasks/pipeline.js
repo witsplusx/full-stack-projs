@@ -34,12 +34,14 @@
 var cssFilesToInject = [
 
   // Bring in `.css` files for themes and style guides (e.g. Bootstrap, Foundation)
-  'dependencies/**/*.css',
+  // 'dependencies/**/*.css',
+  'dependencies/iview/iview.css',
+  'dependencies/cesium/Widgets/widgets.css',
 
   // All of the rest of your custom `.css` files will be injected here,
   // in no particular order.  To customize the ordering, add additional
   // items here, _above_ this one.
-  'styles/**/*.css'
+  'styles/importer.css'
 ];
 
 
@@ -62,17 +64,25 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load `sails.io` before everything else.
-  'dependencies/sails.io.js',
+  // 'dependencies/sails.io.js',
 
   // Bring in `.js` files for any other client-side JavaScript dependencies.
   // (e.g. Lodash, Vue.js, jQuery, Bootstrap, Ember, Angular, etc.)
   // > Be sure to list dependencies that depend on each other in the right order!
-  'dependencies/**/*.js',
+  // 'dependencies/**/*.js',
+  /*
+  'dependencies/lodash/lodash-4.17.4.min.js',
+  'dependencies/vue/vue.min.js',
+  'dependencies/iview/iview.min.js',
+  'dependencies/parasails.js',
+  'dependencies/vue/vue-grid-layout.umd.min.js',
+  'dependencies/bowser.js',
+*/
 
   // All of the rest of your custom client-side js files will be injected here,
   // in no particular order.  To customize the ordering, add additional items
   // here, _above_ this one.
-  'js/**/*.js'
+  // 'js/**/*.js'
 ];
 
 

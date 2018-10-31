@@ -20,4 +20,14 @@ module.exports.custom = {
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
   // …
 
+  mysql_conn: {
+    host: '127.0.0.1',
+    port: '4000',
+    user: 'wits',
+    password: 'wits',
+    database: 'wits_plusx',
+    pool: true,
+    connectionLimit: 50,
+    waitForConnections: true
+  }
 };

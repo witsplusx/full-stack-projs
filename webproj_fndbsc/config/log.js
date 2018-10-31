@@ -10,20 +10,49 @@
  * https://sailsjs.com/docs/concepts/logging
  */
 
+const winston = require('winston');
+
+const { createLogger, format, transport } = require('winston');
+const { combine, timestamp, label, printf, prettyPrint } = format;
+
+const logFormat = printf(function(info) {
+  return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`;
+});
+
+const customLogger = winston.createLogger({
+  format: combine(
+    label({label: ''}),
+    timestamp(),
+    prettyPrint(),
+    logFormat
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({
+      filename: './sails-log.log',
+      handleExceptions: true,
+      level: 'error',
+      json: false,
+      colorize: false
+    })
+  ]
+});
+
 module.exports.log = {
 
   /***************************************************************************
-  *                                                                          *
-  * Valid `level` configs: i.e. the minimum log level to capture with        *
-  * sails.log.*()                                                            *
-  *                                                                          *
-  * The order of precedence for log levels from lowest to highest is:        *
-  * silly, verbose, info, debug, warn, error                                 *
-  *                                                                          *
-  * You may also set the level to "silent" to suppress all logs.             *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Valid `level` configs: i.e. the minimum log level to capture with        *
+   * sails.log.*()                                                            *
+   *                                                                          *
+   * The order of precedence for log levels from lowest to highest is:        *
+   * silly, verbose, info, debug, warn, error                                 *
+   *                                                                          *
+   * You may also set the level to "silent" to suppress all logs.             *
+   *                                                                          *
+   ***************************************************************************/
 
-  // level: 'info'
+  level: 'info', // default level: 'info'
+  custom: customLogger
 
 };

@@ -68,7 +68,7 @@ module.exports.models = {
    ***************************************************************************/
 
   attributes: {
-    id: { type: 'number', columnName: 'id', required: true, columnType: 'bigint(20)', },
+    id: { type: 'number', columnName: 'id', autoIncrement:true, columnType: 'bigint(20)', },
     bsCreatedAt: { type: 'number', autoCreatedAt: true, columnName: 'vsc_created_at', columnType: 'bigint(16)',},
     bsUpdatedAt: { type: 'number', autoUpdatedAt: true, columnName: 'vsc_updated_at', columnType: 'bigint(16)',},
     bsMetaType: {type: 'number', columnName: 'vsc_meta_type', columnType: 'integer(12)'},

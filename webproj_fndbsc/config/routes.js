@@ -24,12 +24,11 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'pages/homepage'
-  },
+  '/': { view: 'pages/homepage' },
+  'GET /dashboard': { action: 'view-dashboard' },
+  'GET /sample': { action: 'view-sample' },
 
-  'GET /fdbsca/organization': { action: 'fdbsca/view-organization' },
-
+  // 'POST /auth/user': 'AuthController.login',
 
   /***************************************************************************
   *                                                                          *
