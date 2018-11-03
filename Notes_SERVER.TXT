@@ -1,0 +1,138 @@
+local node version update
+
+https://blog.csdn.net/cnhome/article/details/78651675
+
+
+npm install -g parse-server mongodb-runner
+mongodb-runner start
+
+parse-server --appId myfirst_app --masterKey myfirst_key --databaseURI mongodb://localhost/test
+
+http://localhost:1337/parse
+
+
+curl -X POST \
+-H "X-Parse-Application-Id: myfirst_app" \
+-H "Content-Type: application/json" \
+-d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
+http://localhost:1337/parse/classes/GameScore
+
+
+{"objectId":"juImRnbLa7","createdAt":"2018-10-10T12:49:39.762Z"}
+
+
+
+curl -X GET \
+  -H "X-Parse-Application-Id: myfirst_app" \
+  http://localhost:1337/parse/classes/GameScore/juImRnbLa7
+
+
+curl -X GET \
+  -H "X-Parse-Application-Id: myfirst_app" \
+  http://localhost:1337/parse/classes/GameScore
+
+
+使用postgresql
+
+postgres://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
+postgres://
+postgres://localhost
+postgres://localhost:5432
+postgres://localhost/mydb
+postgres://user@localhost
+postgres://user:secret@localhost
+postgres://other@localhost/otherdb?connect_timeout=10&application_name=myapp
+postgres://localhost/mydb?user=other&password=secret
+
+
+create user wits_parser with password 'wits_parser';
+create database db_parser owner wits_parser;
+grant all privileges on database db_parser to wits_parser;
+create schema sch_parser;
+grant all on schema sch_parser to wits_parser;
+
+sudo adduser wits_parser
+sudo passwd wits_parser
+sudo su wits_parser
+psql -d db_parser
+
+postgres://wits_parser:wits_parser@localhost:5432/db_parser
+
+nohup parse-server --appId wits_parse_app1 --javascriptKey wits_parse_jskey1 --masterKey wits_parse_key1 \
+ --databaseURI postgres://wits_parser:wits_parser@localhost:5432/db_parser \
+ --port 13370 &
+
+nohup parse-server --appId wits_parse_app2 --javascriptKey wits_parse_jskey2  --masterKey wits_parse_key2 \
+ --databaseURI postgres://wits_parser:wits_parser@localhost:5432/db_parser \
+ --port 13371 &
+
+curl -X POST \
+-H "X-Parse-Application-Id: wits_parser_app" \
+-H "Content-Type: application/json" \
+-d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
+http://localhost:13370/parse/classes/GameScore
+
+
+运行监控
+
+npm install -g parse-dashboard
+nohup parse-dashboard --config ./pdashboard_config.json &
+
+http://localhost:4040/
+
+mongorocks docker
+docker run -d -p 27017:27017 -e DB_USER=wits -e DB_PASS=wits -e DATABASE=db_wits --name witsmongorocks jadsonlourenco/mongo-rocks
+docker start witsmongorocks
+docker stop witsmongorocks
+docker rm -f witsmongorocks
+
+
+mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+
+mongodb://wits:wits@127.0.0.1:27107/db_wits
+
+
+The URL of the Redis server.
+Format: [redis:]//[[user][:password@]][host][:port][/db-number][?db=db-number[&password=bar[&option=value]]]
+
+https local config
+cd /wits/proj-wkspace/wits-projects-plus/Node_APPS/MEVN-boilerplate/server/cert
+openssl genrsa 1024 > ./private.pem
+
+
+
+https://github.com/ndabAP/vue-sails-example
+
+Usage
+Development
+cd backend && sails lift and then cd ../frontend && npm run dev. After that, open localhost:8080 in your browser. Make sure that you start both servers simultaneously.
+
+Production
+First, you have to build up your Vue.js components and merge them with Sails.js. This can be done with cd frontend && npm run build. Now do cd ../backend && NODE_ENV=production node app.js and then open your browser and go to localhost:1337.
+
+
+sails 项目热加载
+npm install sails-hook-autoreload --save
+在config文件夹中添加autoreload.js新文件
+填写内容为：
+
+module.exports.autoreload = {
+
+  active: true,
+  usePolling: false,
+  dirs: [
+    "api/models",
+    "api/controllers",
+    "api/services",
+    "config/locales"
+  ],
+  ignored: [
+    "**.ts"
+  ]
+
+};
+
+项目启动后即可热加载，方便开发测试！
+
+
+

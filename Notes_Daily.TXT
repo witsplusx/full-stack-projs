@@ -10,3 +10,5 @@ docker-compose -p newsql_pingcap start
 sails generate api fdbsca/organization
 sails generate model fdbsca/organization
 sails generate page fdbsca/organization
+
+mongodb-runner start

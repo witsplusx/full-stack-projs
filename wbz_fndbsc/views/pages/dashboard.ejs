@@ -1,0 +1,84 @@
+<div id="dashboard" v-cloak>
+
+  <div id="content">
+    <grid-layout :layout.sync="layout" :margin="[4.8, 4.8]"
+       :col-num="12"
+       :row-height="54"
+       :is-draggable="draggable"
+       :is-resizable="resizable"
+       :vertical-compact="true"
+       :use-css-transforms="true"
+       :responsive="responsive">
+      <!--<grid-item v-for="item in layout" :x="item.x" :y="item.y" :w="item.w"
+         :h="item.h" :i="item.i" drag-allow-from=".vue-draggable-handle"
+         drag-ignore-from=".no-drag">
+        <div class="text">
+          <div class="vue-draggable-handle"></div>
+          <div class="no-drag">
+            <span>{{item.i}}</span>
+            <br/>
+          </div>
+        </div>
+      </grid-item>-->
+      <grid-item :x="0" :y="0" :w="2" :h="8" :i="1"
+                 :is-draggable="false" :is-resizable="false">
+        <div class="text">
+          <div class="no-drag">
+            <span>实时浓度告警列表</span>
+            <br/>
+          </div>
+        </div>
+      </grid-item>
+
+      <grid-item :x="2" :y="0" :w="8" :h="1" :i="2"
+        :is-draggable="false" :is-resizable="false" style="background-color: #000;">
+        <div style="font-size: 28px;margin-top: 0px;text-align: center;">
+          <span style="color: white;">合肥城市生命线—燃气专项综合展示平台</span>
+        </div>
+      </grid-item>
+
+      <grid-item :x="10" :y="0" :w="2" :h="8" :i="3"
+                 :is-draggable="false" :is-resizable="false">
+        <div class="text">
+          <div class="no-drag">
+            <span>设备运行跟踪</span>
+            <br/>
+          </div>
+        </div>
+      </grid-item>
+
+      <grid-item :x="0" :y="8" :w="2" :h="8" :i="4"
+                 :is-draggable="false" :is-resizable="false">
+        <div class="text">
+          <div class="no-drag">
+            <span>燃气集团应急抢险实时展示</span>
+            <br/>
+          </div>
+        </div>
+      </grid-item>
+
+      <grid-item :x="2" :y="1" :w="8" :h="15" :i="5"
+                 :is-draggable="false" :is-resizable="false">
+        <div id="cesiumContainer">
+          <div id="creditContainer"></div>
+          <div id="mouse_state" style="position:relative;z-index:1111;top:1px;
+          left:1px;background-color:white;float: left;">&nbsp;</div>
+        </div>
+      </grid-item>
+
+      <grid-item :x="10" :y="8" :w="2" :h="8" :i="6"
+                 :is-draggable="false" :is-resizable="false">
+        <div class="text">
+          <div class="no-drag">
+            <span>监测中心实施处置</span>
+            <br/>
+          </div>
+        </div>
+      </grid-item>
+    </grid-layout>
+  </div>
+</div>
+
+<%- include('../layouts/layt_tpl_js', {}); %>
+<script src="/dependencies/frm_wits/frm_wits.js"></script>
+<script src="/js/pages/dashboard.page.js"></script>
