@@ -51,8 +51,11 @@ module.exports.datastores = {
     /*adapter: 'sails-mysql',
     url: 'mysql://wits:wits@127.0.0.1:4000/wits_plusx'*/
 
-    adapter: 'sails-mongo',
-    url: 'mongodb://localhost/test',
+    /*adapter: 'sails-mongo',
+    url: 'mongodb://localhost/test'*/
+
+    adapter: 'sails-postgresql',
+    url: 'postgres://usr_wits_plusx:usr_wits_plusx@127.0.0.1:5432/db_wits_plusx'
 
   },
 

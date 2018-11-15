@@ -36,9 +36,15 @@ module.exports.routes = {
 
   'GET /fdbsca/sample': { action: 'fdbsca/view-sample' },
   'GET /dashboard': { action: 'view-dashboard' },
-
+  'POST /commws/hello': 'SysDatasController.gaseqps',
   'POST /sysdatas/eqps': 'SysDatasController.gaseqps',
+  'GET /sysdatas/wshello': 'SysDatasController.wshello',
+  'GET /sysdatas/redistest': 'SysDatasController.redistest',
 
+  'GET /file/index': 'FileController.index',
+  'POST /file/upload': 'FileController.upload',
+
+  'GET /gis3d': { action: 'view-gis3d' },
 
   /***************************************************************************
   *                                                                          *

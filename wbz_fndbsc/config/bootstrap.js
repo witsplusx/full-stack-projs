@@ -32,12 +32,22 @@ module.exports.bootstrap = async function(done) {
   let gasEqups = fs.readFileSync(file, 'utf-8');
   if(null!=gasEqups) {
     // gasEqups = JSON.parse(gasEqups);
-    sails.config.custom.gasEPDatas.equipments = gasEqups;
+    sails.config.custom.gasEPDatas.equipments = JSON.parse(gasEqups);
     // console.log('data==============' + sails.config.custom.gasEPDatas.equipments);
   }
   // const custom = sails.global;
   // console.log('gasdatas=====' + sails.custom);
   // sails.custom.gasEPDatas.equipments = gasEqups;
+
+  let actions = sails.getActions();
+  console.log('----' + actions);
+
+  let CronJob = require('cron').CronJob;
+  new CronJob('*/5 * * * * *', function() {
+    console.log('You will see this message every second');
+    sails.sockets.broadcast('funSockets', 'wshello', {howdy: 'hi there!'});
+  }, null, true, 'Asia/Shanghai');
+
 
   // Don't forget to trigger `done()` when this bootstrap function's logic is finished.
   // (otherwise your server will never lift, since it's waiting on the bootstrap)

@@ -91,15 +91,20 @@ wits_jsfrm.define('wits_3dgis', [], () => {
     });
 
     //WebMapTileServiceImageryProvider--天地图
-    let tdtMap = new Cesium.WebMapTileServiceImageryProvider({
-      url: 'http://t0.tianditu.com/img_w/wmts?',
-      layer: 'img',
-      style: 'default',
-      format: 'tiles',
-      tileMatrixSetID: 'w',
-      credit: new Cesium.Credit('天地图全球影像服务'),
-      maximumLevel: 18
+    var tdtMap = new Cesium.WebMapTileServiceImageryProvider({
+      url : 'http://t0.tianditu.com/img_c/wmts?service=WMTS&version=1.0.0&request=GetTile&tilematrix={TileMatrix}&layer=img&style={style}&tilerow={TileRow}&tilecol={TileCol}&tilematrixset={TileMatrixSet}&format=tiles',
+      layer : 'img',
+      style : 'default',
+      format : 'tiles',
+      tileMatrixSetID : 'c',
+      credit : new Cesium.Credit('天地图全球影像服务'),
+      subdomains : ['t0','t1','t2','t3','t4','t5','t6','t7'],
+      maximumLevel : 15,
+      tilingScheme : new Cesium.GeographicTilingScheme(),
+      tileMatrixLabels:['1','2','3','4','5','6','7']
     });
+
+
     //天地图注记
     let tdtVectormap = new Cesium.WebMapTileServiceImageryProvider({
       url: 'http://t0.tianditu.com/cia_w/wmts?services=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg',
@@ -119,7 +124,7 @@ wits_jsfrm.define('wits_3dgis', [], () => {
     //--------------------------------设置ProviderViewModel-----------------------
     let tdtMapModel = new Cesium.ProviderViewModel({
       name: '天地图影像',//tdt Maps
-      iconUrl: '/gisdatas/images/tdt.jpg',//Cesium.buildModuleUrl('./Widgets/Images/ImageryProviders/tdt.jpg'),
+      iconUrl: '/images/gis/02_tianditu.jpg',//Cesium.buildModuleUrl('./Widgets/Images/ImageryProviders/tdt.jpg'),
       tooltip: '天地图 地图服务\nhttp://t0.tianditu.com/img_w/wmts',
       creationFunction: function () {
         return tdtMap;
@@ -180,19 +185,6 @@ wits_jsfrm.define('wits_3dgis', [], () => {
       }
     });
     providerViewModels.push(mboxMapModel);
-
-
-
-    /*let tdtvMapModel = new Cesium.ProviderViewModel({
-      name: '天地图注记',//tdtv Maps
-      iconUrl: "/gisdatas/images/tdt.jpg",//Cesium.buildModuleUrl('./Widgets/Images/ImageryProviders/tdt.jpg'),
-      tooltip: '天地图注记 地图服务\nhttp://t0.tianditu.com/img_w/wmts',
-      creationFunction: function () {
-        return tdtVectormap;
-      }
-    });
-    providerViewModels.push(tdtvMapModel);*/
-
 
   }
 
@@ -331,8 +323,6 @@ wits_jsfrm.define('wits_3dgis', [], () => {
       infoBox: true,  //是否显示点击要素之后显示的信息
       navigationHelpButton: false, //是否显示帮助信息控件
 
-
-
       contextOptions: {
         webgl: {
           alpha: true
@@ -365,7 +355,7 @@ wits_jsfrm.define('wits_3dgis', [], () => {
     viewer.imageryLayers.addImageryProvider(hfyxProvider);*/
 
     //开启 CesiumInspector 控件
-    viewer.extend(Cesium.viewerCesiumInspectorMixin);
+    // viewer.extend(Cesium.viewerCesiumInspectorMixin);
 
     viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
     viewer.scene.globe.baseColor = Cesium.Color.TRANSPARENT;
@@ -424,22 +414,6 @@ wits_jsfrm.define('wits_3dgis', [], () => {
       for(let i=0; i<=equips.length; i++) {
         let item = equips[i];
         if(null!=item && item.JINGDU!=undefined && item.WEIDU!=undefined) {
-          // alert(item.JINGDU + '====' + item.WEIDU);
-
-          /*var ellipse = new Cesium.EllipseGeometry({
-            center: Cesium.Cartesian3.fromDegrees(item.JINGDU, item.WEIDU),
-            semiMajorAxis: 10000.0,
-            semiMinorAxis: 10000.0,
-            vertexFormat: Cesium.VertexFormat.POSITION_ONLY
-          });
-          var geometry = Cesium.EllipseGeometry.createGeometry(ellipse);
-          var ellipseInstance = new Cesium.GeometryInstance({
-            geometry: geometry,
-            attributes: {
-              color: Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.RED)
-            }
-          });
-          instances.push(ellipseInstance);*/
           if(item.JINGDU<190.0 && item.WEIDU<35.0) {
             viewer.entities.add({
               name: item.EQUIPMENTCODE,
@@ -447,16 +421,9 @@ wits_jsfrm.define('wits_3dgis', [], () => {
               point : {
                 show : true, // default
                 color : Cesium.Color.GREEN, // default: WHITE
-                pixelSize : 12, // default: 1
+                pixelSize : 10, // default: 1
                 // outlineColor : Cesium.Color.BLUE, // default: BLACK
                 // outlineWidth : 2 // default: 0
-              },
-              properties: {
-                equipmentcode: item.EQUIPMENTCODE,
-                typename: item.TYPENAME,
-                equiptype: item.EQUIPTYPE,
-                roadcrossing: item.ROADCROSSING,
-                monindex: item.MONINDEX
               }
             });
             index++;

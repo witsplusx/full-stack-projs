@@ -69,7 +69,7 @@ module.exports.models = {
   ***************************************************************************/
 
   attributes: {
-    id: { type: 'number', columnName: 'id', columnType: 'bigint(20)', autoIncrement: true },
+    /*id: { type: 'number', columnName: 'id', columnType: 'bigint(20)', autoIncrement: true },
 	  bsCreatedAt: { type: 'number', autoCreatedAt: true, columnName: 'vsc_created_at', columnType: 'bigint(16)',},
     bsUpdatedAt: { type: 'number', autoUpdatedAt: true, columnName: 'vsc_updated_at', columnType: 'bigint(16)',},
     bsMetaType: {type: 'number', columnName: 'vsc_meta_type', columnType: 'integer(12)'},
@@ -80,7 +80,22 @@ module.exports.models = {
 	  bsTxId: {type: 'number', columnName: 'vsc_txid', columnType: 'bigint(20)'},
 	  bsPaUnid: {type: 'number', columnName: 'vsc_pa_unid', columnType: 'bigint(20)'},
     bsName: {type: 'string', columnName: 'vsc_name', columnType: 'varchar(80)'},
-    bsCode: {type: 'string', columnName: 'vsc_code', columnType: 'varchar(80)'},
+    bsCode: {type: 'string', columnName: 'vsc_code', columnType: 'varchar(80)'},*/
+
+    id: { type: 'number', columnName: 'id', autoIncrement: true },
+    bsCreatedAt: { type: 'number', autoCreatedAt: true, columnName: 'vsc_created_at', },
+    bsUpdatedAt: { type: 'number', autoUpdatedAt: true, columnName: 'vsc_updated_at', },
+    bsMetaType: {type: 'number', columnName: 'vsc_meta_type', },
+    bsMetaDesc: {type: 'string', columnName: 'vsc_meta_desc', },
+    bsIsUse: {type: 'boolean', columnName: 'vsc_is_use', defaultsTo: true},
+    bsDRegion: {type: 'number', columnName: 'vsc_data_region', },
+    bsDVersion: {type: 'number', columnName: 'vsc_data_version',},
+    bsTxId: {type: 'number', columnName: 'vsc_txid', },
+    bsPaUnid: {type: 'number', columnName: 'vsc_pa_unid', },
+    bsName: {type: 'string', columnName: 'vsc_name', },
+    bsCode: {type: 'string', columnName: 'vsc_code', },
+
+
     //--------------------------------------------------------------------------
     //  /\   Using MongoDB?
     //  ||   Replace `id` above with this instead:

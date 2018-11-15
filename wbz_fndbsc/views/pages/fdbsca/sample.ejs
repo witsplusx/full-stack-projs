@@ -1,7 +1,9 @@
 <div id="sample" v-cloak>
 
-  <h1>TODO: Implement this page.</h1>
-  <p>(See also <em>assets/styles/pages/fdbsca/sample.less</em>, <em>assets/js/pages/fdbsca/sample.page.js</em>, and <em>api/controllers/fdbsca/view-sample.js</em>.)</p>
+  <i-button @click="show">Click me!</i-button>
+  <Modal v-model="visible" title="Welcome">Welcome to iView说对方收到</Modal>
 
 </div>
-<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
+
+<%- include('../../layouts/layt_tpl_js', {}); %>
+<script src="/js/pages/fdbsca/sample.page.js"></script>

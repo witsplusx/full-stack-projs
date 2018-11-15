@@ -22,7 +22,9 @@ parasails.registerPage('login', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     show: function () {
-        this.visible = true;
-      }
+      io.socket.get('/say/hello', function gotResponse(data, jwRes) {
+        console.log('Server responded with status code ' + jwRes.statusCode + ' and data: ', data);
+      });
+    }
   }
 });
